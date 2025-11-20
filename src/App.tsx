@@ -1,16 +1,12 @@
-
-import './App.css'
+import "./App.css";
+import PasswordGenerator from "./features/password-generator/PasswordGenerator";
 
 function App() {
-
-
   return (
     <>
-     
-      <h1>Vite + React</h1>
-    
+      <PasswordGenerator />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,0 +1,31 @@
+:root {
+  --font-family-mono: "JetBrains Mono", monospace;
+
+  --color-red: #f64a4a;
+  --color-orange: #fb7c58;
+  --color-yellow: #f8cd65;
+  --color-neon-green: #a4ffaf;
+  --color-white: #e6e5ea;
+  --color-grey: #817d92;
+  --color-dark-grey: #24232c;
+  --color-vdark-grey: #18171f;
+}
+
+body {
+  background-color: var(--color-vdark-grey);
+  color: var(--color-white);
+  font-family: var(--font-family-mono);
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.4375rem;
+}
+
+.heading-l {
+  font-size: 2rem;
+  line-height: 2.687rem;
+}
+
+.heading-m {
+  font-size: 1.5rem;
+  line-height: 1.937rem;
+}
