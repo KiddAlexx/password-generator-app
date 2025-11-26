@@ -4,7 +4,19 @@
   width: 33.75rem;
   padding: 0rem 2rem;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.labelContainer {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+}
+
+.value {
+  color: var(--color-neon-green);
 }
 
 input[type="range"] {

@@ -8,7 +8,17 @@ function CustomSlider({ min = 1, max = 20 }) {
 
   return (
     <div className={styles.sliderContainer}>
+      <div className={styles.labelContainer}>
+        <label htmlFor="lengthSlider" className={styles.label}>
+          Character Length
+        </label>
+        <output htmlFor="lengthSlider" className={`${styles.value} heading-l`}>
+          {value}
+        </output>
+      </div>
+
       <input
+        id="lengthSlider"
         type="range"
         min={min}
         max={max}
