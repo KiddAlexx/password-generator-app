@@ -1,0 +1,87 @@
+.sliderContainer {
+  background-color: var(--color-dark-grey);
+  height: 8.94rem;
+  width: 33.75rem;
+  padding: 0rem 2rem;
+  display: flex;
+  align-items: center;
+}
+
+input[type="range"] {
+  /* removing default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+  /* creating a custom design */
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  height: 0.5rem;
+  background: var(--color-vdark-grey);
+  border-radius: 0px;
+}
+/* Track: webkit browsers */
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 0.5rem;
+}
+
+/* Thumb: webkit */
+input[type="range"]::-webkit-slider-thumb {
+  /* removing default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+  /* creating a custom design */
+  height: 1.75rem;
+  width: 1.75rem;
+  background-color: var(--color-white);
+  border-radius: 50%;
+  border: 2px solid var(--color-white);
+
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+
+  /* FIX alignment in Chrome */
+  margin-top: calc((0.5rem - 1.75rem) / 2);
+}
+
+/* Thumb: Firefox */
+input[type="range"]::-moz-range-thumb {
+  height: 1.75rem;
+  width: 1.75rem;
+  background-color: var(--color-white);
+  border-radius: 50%;
+  border: 2px solid var(--color-white);
+
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Hover + active states */
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  background-color: var(--color-vdark-grey);
+  border-color: var(--color-neon-green);
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+  background-color: var(--color-vdark-grey);
+  border-color: var(--color-neon-green);
+}
+input[type="range"]::-webkit-slider-thumb:active {
+  background-color: var(--color-vdark-grey);
+  border-color: var(--color-neon-green);
+}
+
+input[type="range"]::-moz-range-thumb:active {
+  background-color: var(--color-vdark-grey);
+  border-color: var(--color-neon-green);
+}
+
+/* Focus state */
+
+input[type="range"]:focus::-webkit-slider-thumb {
+  background-color: var(--color-vdark-grey);
+  border-color: var(--color-neon-green);
+}
+input[type="range"]:focus::-moz-range-thumb {
+  background-color: var(--color-vdark-grey);
+  border-color: var(--color-neon-green);
+}
