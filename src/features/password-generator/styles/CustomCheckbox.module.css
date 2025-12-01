@@ -16,16 +16,33 @@
   width: 1.25rem;
   height: 1.25rem;
   border: 2px solid var(--color-white);
-
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-neon-green);
-
+  background-color: transparent;
   transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
+/* Tick Icon */
 .checkIcon {
   display: block;
   stroke: var(--color-vdark-grey);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* Checked state */
+
+.checkbox input[type="checkbox"]:checked + .box {
+  background-color: var(--color-neon-green);
+  border-color: var(--color-neon-green);
+}
+
+.checkbox input[type="checkbox"]:checked + .box .checkIcon {
+  opacity: 1;
+}
+
+.checkbox input[type="checkbox"]:focus-visible + .box {
+  outline: 2px solid var(--color-neon-green);
+  outline-offset: 3px;
 }
