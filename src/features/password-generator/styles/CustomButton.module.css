@@ -1,0 +1,21 @@
+.customButton {
+  max-width: 29.75rem;
+  width: 100%;
+  height: 4.06rem;
+  background-color: var(--color-neon-green);
+  border: 2px solid var(--color-neon-green);
+  fill: var(--color-dark-grey);
+  color: var(--color-dark-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+
+  transition: background-color 0.2s ease, color 0.2s ease, fill 0.2s ease;
+}
+
+.customButton:hover {
+  background-color: var(--color-dark-grey);
+  color: var(--color-neon-green);
+  fill: var(--color-neon-green);
+}

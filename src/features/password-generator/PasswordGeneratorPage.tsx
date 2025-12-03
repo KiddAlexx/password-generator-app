@@ -2,6 +2,8 @@ import { useState } from "react";
 import CustomCheckbox from "./components/CustomCheckbox";
 import CustomSlider from "./components/CustomSlider";
 import styles from "./styles/PasswordGeneratorPage.module.css";
+import CustomButton from "./components/CustomButton";
+import RightArrowIcon from "../../assets/icons/icon-arrow-right.svg?react";
 
 function PasswordGeneratorPage() {
   const [options, setOptions] = useState({
@@ -73,6 +75,9 @@ function PasswordGeneratorPage() {
           />
         </fieldset>
       </div>
+      <CustomButton>
+        GENERATE <RightArrowIcon />
+      </CustomButton>
     </div>
   );
 }
