@@ -16,7 +16,15 @@ function PasswordGeneratorPage() {
     <div className={styles.passwordGenPage}>
       <h1 className="heading-m">Password Generator</h1>
       <div className={styles.appContainer}>
-        <CustomSlider />
+        <CustomSlider
+          characterLength={options.characterLength}
+          handleChange={(value) => {
+            setOptions((prev) => ({
+              ...prev,
+              characterLength: value,
+            }));
+          }}
+        />
         <fieldset>
           <legend className="srOnly">Character options</legend>
           <CustomCheckbox

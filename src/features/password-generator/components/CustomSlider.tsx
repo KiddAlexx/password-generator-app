@@ -1,10 +1,19 @@
-import { useState } from "react";
 import styles from "../styles/CustomSlider.module.css";
 
-function CustomSlider({ min = 1, max = 20 }) {
-  const [value, setValue] = useState(10);
+interface CustomSliderProps {
+  min?: number;
+  max?: number;
+  handleChange: (value: number) => void;
+  characterLength: number;
+}
 
-  const percent = ((value - min) / (max - min)) * 100;
+function CustomSlider({
+  min = 1,
+  max = 20,
+  handleChange,
+  characterLength,
+}: CustomSliderProps) {
+  const percent = ((characterLength - min) / (max - min)) * 100;
 
   return (
     <div className={styles.sliderContainer}>
@@ -13,7 +22,7 @@ function CustomSlider({ min = 1, max = 20 }) {
           Character Length
         </label>
         <output htmlFor="lengthSlider" className={`${styles.value} heading-l`}>
-          {value}
+          {characterLength}
         </output>
       </div>
 
@@ -22,8 +31,8 @@ function CustomSlider({ min = 1, max = 20 }) {
         type="range"
         min={min}
         max={max}
-        value={value}
-        onChange={(e) => setValue(Number(e.target.value))}
+        value={characterLength}
+        onChange={(e) => handleChange(Number(e.target.value))}
         style={{
           background: `linear-gradient(to right,
                       var(--color-neon-green) 0%,
