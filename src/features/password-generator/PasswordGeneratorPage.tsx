@@ -4,6 +4,7 @@ import CustomSlider from "./components/CustomSlider";
 import styles from "./styles/PasswordGeneratorPage.module.css";
 import CustomButton from "./components/CustomButton";
 import RightArrowIcon from "../../assets/icons/icon-arrow-right.svg?react";
+import PasswordStrength from "./components/PasswordStrength";
 
 function PasswordGeneratorPage() {
   const [options, setOptions] = useState({
@@ -74,10 +75,11 @@ function PasswordGeneratorPage() {
             }
           />
         </fieldset>
+        <PasswordStrength passwordStrength={"strong"} />
+        <CustomButton>
+          GENERATE <RightArrowIcon />
+        </CustomButton>
       </div>
-      <CustomButton>
-        GENERATE <RightArrowIcon />
-      </CustomButton>
     </div>
   );
 }
