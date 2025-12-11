@@ -12,7 +12,7 @@ function PasswordGeneratorPage() {
     includeLower: false,
     includeNumbers: false,
     includeSymbols: false,
-    characterLength: 10,
+    characterLength: 0,
   });
 
   return (
