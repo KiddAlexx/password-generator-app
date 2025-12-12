@@ -7,6 +7,7 @@ import RightArrowIcon from "../../assets/icons/icon-arrow-right.svg?react";
 import PasswordStrength from "./components/PasswordStrength";
 import type { PasswordOptions, StrengthLevel } from "../../types/passwordTypes";
 import calculateStrength from "../../utils/calculateStrength";
+import PasswordDisplay from "./components/PasswordDisplay";
 
 function PasswordGeneratorPage() {
   const [options, setOptions] = useState<PasswordOptions>({
@@ -23,6 +24,7 @@ function PasswordGeneratorPage() {
     <div className={styles.passwordGenPage}>
       <h1 className="heading-m">Password Generator</h1>
       <div className={styles.appContainer}>
+        <PasswordDisplay />
         <CustomSlider
           characterLength={options.characterLength}
           handleChange={(value) => {

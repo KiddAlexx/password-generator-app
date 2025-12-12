@@ -7,3 +7,5 @@ export interface PasswordOptions {
 }
 
 export type StrengthLevel = "empty" | "too-weak" | "weak" | "medium" | "strong";
+
+export type Password = string;
