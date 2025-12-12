@@ -5,11 +5,26 @@ import { useState } from "react";
 import type { Password } from "../../../types/passwordTypes";
 
 interface PasswordDisplayProps {
-  password: Password;
+  password?: Password;
 }
 
 function PasswordDisplay({ password }: PasswordDisplayProps) {
-  const [copied, setCopied] = useState<boolean>(true);
+  const [copied, setCopied] = useState<boolean>(false);
+
+  const handleCopy = async function () {
+    if (!password) {
+      setCopied(false);
+      console.error("no password was provided");
+      return;
+    }
+    try {
+      await navigator.clipboard.writeText(password);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error(`Failed to copy password: ${err}`);
+    }
+  };
 
   /* password = "Gjksd&dakjd63232&125"; */
   return (
@@ -24,7 +39,11 @@ function PasswordDisplay({ password }: PasswordDisplayProps) {
       </output>
       <div className={styles.copyContainer}>
         {copied && <span className={styles.copyLabel}>COPIED</span>}
-        <button className={styles.copyButton} aria-label="Copy password">
+        <button
+          onClick={handleCopy}
+          className={styles.copyButton}
+          aria-label="Copy password"
+        >
           <CopyIcon className={styles.copyIcon} />
         </button>
       </div>

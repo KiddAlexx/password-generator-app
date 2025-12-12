@@ -24,7 +24,7 @@ function PasswordGeneratorPage() {
     <div className={styles.passwordGenPage}>
       <h1 className="heading-m">Password Generator</h1>
       <div className={styles.appContainer}>
-        <PasswordDisplay />
+        <PasswordDisplay password="t3StP4sssSSw00rD!!" />
         <CustomSlider
           characterLength={options.characterLength}
           handleChange={(value) => {
