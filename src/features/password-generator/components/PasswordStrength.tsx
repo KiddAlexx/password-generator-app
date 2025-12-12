@@ -3,7 +3,7 @@ import styles from "../styles/PasswordStrength.module.css";
 import type { StrengthLevel } from "../../../types/passwordTypes";
 
 interface PasswordStrengthProps {
-  passwordStrength: StrengthLevel;
+  level: StrengthLevel;
 }
 
 const strengthConfig = {
@@ -14,8 +14,8 @@ const strengthConfig = {
   strong: { text: "STRONG", bars: 4, color: "green" },
 };
 
-function PasswordStrength({ passwordStrength }: PasswordStrengthProps) {
-  const { text, bars, color } = strengthConfig[passwordStrength];
+function PasswordStrength({ level }: PasswordStrengthProps) {
+  const { text, bars, color } = strengthConfig[level];
 
   return (
     <div className={styles.strengthContainer}>

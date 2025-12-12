@@ -5,15 +5,19 @@ import styles from "./styles/PasswordGeneratorPage.module.css";
 import CustomButton from "./components/CustomButton";
 import RightArrowIcon from "../../assets/icons/icon-arrow-right.svg?react";
 import PasswordStrength from "./components/PasswordStrength";
+import type { PasswordOptions, StrengthLevel } from "../../types/passwordTypes";
+import calculateStrength from "../../utils/calculateStrength";
 
 function PasswordGeneratorPage() {
-  const [options, setOptions] = useState({
+  const [options, setOptions] = useState<PasswordOptions>({
     includeUpper: false,
     includeLower: false,
     includeNumbers: false,
     includeSymbols: false,
     characterLength: 0,
   });
+
+  const strength: StrengthLevel = calculateStrength(options);
 
   return (
     <div className={styles.passwordGenPage}>
@@ -75,7 +79,7 @@ function PasswordGeneratorPage() {
             }
           />
         </fieldset>
-        <PasswordStrength passwordStrength={"strong"} />
+        <PasswordStrength level={strength} />
         <CustomButton>
           GENERATE <RightArrowIcon />
         </CustomButton>
