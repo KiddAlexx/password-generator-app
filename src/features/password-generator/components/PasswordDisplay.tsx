@@ -26,7 +26,6 @@ function PasswordDisplay({ password }: PasswordDisplayProps) {
     }
   };
 
-  /* password = "Gjksd&dakjd63232&125"; */
   return (
     <div className={styles.displayContainer}>
       <output

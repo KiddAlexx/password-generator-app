@@ -21,7 +21,9 @@ function PasswordStrength({ level }: PasswordStrengthProps) {
     <div className={styles.strengthContainer}>
       <span className={styles.strengthLabel}>STRENGTH</span>
       <div className={styles.outputContainer}>
-        <output className="heading-m">{text}</output>
+        {/* non breaking space used when no strength value displayed
+        to avoid layout shift */}
+        <output className="heading-m">{text || "\u00A0"}</output>
         <ul className={clsx(styles.barContainer, styles[color])}>
           {Array.from({ length: 4 }).map((_, i) => (
             <li key={i} className={i < bars ? styles.filled : ""} />

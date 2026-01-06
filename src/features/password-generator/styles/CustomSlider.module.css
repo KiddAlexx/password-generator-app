@@ -1,8 +1,4 @@
 .sliderContainer {
-  background-color: var(--color-dark-grey);
-  height: 8.94rem;
-  width: 33.75rem;
-  padding: 0rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
