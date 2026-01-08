@@ -1,3 +1,5 @@
+/*********** Variables ***********/
+
 :root {
   --font-family-mono: "JetBrains Mono", monospace;
 
@@ -10,6 +12,8 @@
   --color-dark-grey: #24232c;
   --color-vdark-grey: #18171f;
 }
+
+/*********** Base styles ***********/
 
 body {
   background-color: var(--color-vdark-grey);
@@ -40,4 +44,23 @@ body {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/*********** Responsive styles ***********/
+
+@media (max-width: 480px) {
+  body {
+    font-size: 1rem;
+    line-height: 1.4375rem;
+  }
+
+  .heading-l {
+    font-size: 1.5rem;
+    line-height: 1.9375rem;
+  }
+
+  .heading-m {
+    font-size: 1.125rem;
+    line-height: 1.4375rem;
+  }
 }

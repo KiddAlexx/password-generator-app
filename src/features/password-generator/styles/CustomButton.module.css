@@ -1,3 +1,5 @@
+/*********** Base styles ***********/
+
 .customButton {
   max-width: 29.75rem;
   width: 100%;
@@ -18,4 +20,12 @@
   background-color: var(--color-dark-grey);
   color: var(--color-neon-green);
   fill: var(--color-neon-green);
+}
+
+/*********** Responsive styles ***********/
+
+@media (max-width: 480px) {
+  .customButton {
+    height: 3.5rem;
+  }
 }
