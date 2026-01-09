@@ -1,12 +1,10 @@
-import type { ReactNode } from "react";
+import type { ButtonHTMLAttributes } from "react";
 import styles from "../styles/CustomButton.module.css";
 
-interface CustomButtonProps {
-  children: ReactNode;
-}
+type CustomButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
-function CustomButton({ children }: CustomButtonProps) {
-  return <button className={styles.customButton}>{children}</button>;
+function CustomButton({ ...props }: CustomButtonProps) {
+  return <button {...props} className={styles.customButton} />;
 }
 
 export default CustomButton;
