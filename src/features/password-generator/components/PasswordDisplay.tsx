@@ -5,7 +5,7 @@ import { useState } from "react";
 import type { Password } from "../../../types/passwordTypes";
 
 interface PasswordDisplayProps {
-  password?: Password;
+  password: Password | null;
 }
 
 function PasswordDisplay({ password }: PasswordDisplayProps) {

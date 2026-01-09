@@ -8,6 +8,7 @@ import PasswordStrength from "./components/PasswordStrength";
 import type { PasswordOptions, StrengthLevel } from "../../types/passwordTypes";
 import calculateStrength from "../../utils/calculateStrength";
 import PasswordDisplay from "./components/PasswordDisplay";
+import generatePassword from "../../utils/generatePassword";
 
 function PasswordGeneratorPage() {
   const [options, setOptions] = useState<PasswordOptions>({
@@ -18,14 +19,28 @@ function PasswordGeneratorPage() {
     characterLength: 0,
   });
 
+  const [password, setPassword] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
   const strength: StrengthLevel = calculateStrength(options);
+
+  function handleClick() {
+    const passwordResult = generatePassword(options);
+    if (!passwordResult.ok) {
+      setPassword(null);
+      setError(passwordResult.error);
+      return;
+    }
+
+    setPassword(passwordResult.password);
+  }
 
   return (
     <div className={styles.passwordGenPage}>
       <h1 className="heading-m">Password Generator</h1>
       <div className={styles.appContainer}>
         <div className={styles.displayContainer}>
-          <PasswordDisplay />
+          <PasswordDisplay password={password} />
         </div>
         <div className={styles.controlsContainer}>
           <CustomSlider
@@ -85,7 +100,7 @@ function PasswordGeneratorPage() {
             />
           </fieldset>
           <PasswordStrength level={strength} />
-          <CustomButton>
+          <CustomButton onClick={handleClick}>
             GENERATE <RightArrowIcon />
           </CustomButton>
         </div>
