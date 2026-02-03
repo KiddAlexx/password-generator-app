@@ -111,7 +111,7 @@ function PasswordGeneratorPage() {
               />
             </fieldset>
             <PasswordStrength level={strength} />
-            <CustomButton onClick={handleClick}>
+            <CustomButton aria-label="Generate password" onClick={handleClick}>
               GENERATE <RightArrowIcon />
             </CustomButton>
           </div>
