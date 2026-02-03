@@ -1,0 +1,23 @@
+.dialog {
+  padding: 1.5rem;
+  max-width: 30rem;
+  width: calc(100vw - 2rem);
+  background-color: var(--color-dark-grey);
+  color: var(--color-white);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.title {
+  color: var(--color-red);
+  margin-bottom: 0.75rem;
+}
+
+.message {
+  color: var(--color-white);
+  margin-bottom: 1.25rem;
+  line-height: 1.4;
+}

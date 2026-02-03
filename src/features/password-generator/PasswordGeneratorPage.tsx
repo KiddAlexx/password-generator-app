@@ -9,6 +9,7 @@ import type { PasswordOptions, StrengthLevel } from "../../types/passwordTypes";
 import calculateStrength from "../../utils/calculateStrength";
 import PasswordDisplay from "./components/PasswordDisplay";
 import generatePassword from "../../utils/generatePassword";
+import ErrorModal from "./components/ErrorModal";
 
 function PasswordGeneratorPage() {
   const [options, setOptions] = useState<PasswordOptions>({
@@ -33,79 +34,87 @@ function PasswordGeneratorPage() {
     }
 
     setPassword(passwordResult.password);
+    setError(null);
+  }
+
+  function handleClearError() {
+    setError(null);
   }
 
   return (
-    <div className={styles.passwordGenPage}>
-      <h1 className="heading-m">Password Generator</h1>
-      <div className={styles.appContainer}>
-        <div className={styles.displayContainer}>
-          <PasswordDisplay password={password} />
-        </div>
-        <div className={styles.controlsContainer}>
-          <CustomSlider
-            characterLength={options.characterLength}
-            handleChange={(value) => {
-              setOptions((prev) => ({
-                ...prev,
-                characterLength: value,
-              }));
-            }}
-          />
-          <fieldset className={styles.checkboxContainer}>
-            <legend className="srOnly">Character options</legend>
-            <CustomCheckbox
-              checked={options.includeUpper}
-              id="uppercase"
-              label="Include Uppercase Letters"
-              onChange={() =>
+    <>
+      <ErrorModal errorMessage={error} handleClearError={handleClearError} />
+      <div className={styles.passwordGenPage}>
+        <h1 className="heading-m">Password Generator</h1>
+        <div className={styles.appContainer}>
+          <div className={styles.displayContainer}>
+            <PasswordDisplay password={password} />
+          </div>
+          <div className={styles.controlsContainer}>
+            <CustomSlider
+              characterLength={options.characterLength}
+              handleChange={(value) => {
                 setOptions((prev) => ({
                   ...prev,
-                  includeUpper: !prev.includeUpper,
-                }))
-              }
+                  characterLength: value,
+                }));
+              }}
             />
-            <CustomCheckbox
-              checked={options.includeLower}
-              id="lowercase"
-              label="Include Lowercase Letters"
-              onChange={() =>
-                setOptions((prev) => ({
-                  ...prev,
-                  includeLower: !prev.includeLower,
-                }))
-              }
-            />
-            <CustomCheckbox
-              checked={options.includeNumbers}
-              id="numbers"
-              label="Include Numbers"
-              onChange={() =>
-                setOptions((prev) => ({
-                  ...prev,
-                  includeNumbers: !prev.includeNumbers,
-                }))
-              }
-            />
-            <CustomCheckbox
-              checked={options.includeSymbols}
-              id="symbols"
-              label="Include Symbols"
-              onChange={() =>
-                setOptions((prev) => ({
-                  ...prev,
-                  includeSymbols: !prev.includeSymbols,
-                }))
-              }
-            />
-          </fieldset>
-          <PasswordStrength level={strength} />
-          <CustomButton onClick={handleClick}>
-            GENERATE <RightArrowIcon />
-          </CustomButton>
+            <fieldset className={styles.checkboxContainer}>
+              <legend className="srOnly">Character options</legend>
+              <CustomCheckbox
+                checked={options.includeUpper}
+                id="uppercase"
+                label="Include Uppercase Letters"
+                onChange={() =>
+                  setOptions((prev) => ({
+                    ...prev,
+                    includeUpper: !prev.includeUpper,
+                  }))
+                }
+              />
+              <CustomCheckbox
+                checked={options.includeLower}
+                id="lowercase"
+                label="Include Lowercase Letters"
+                onChange={() =>
+                  setOptions((prev) => ({
+                    ...prev,
+                    includeLower: !prev.includeLower,
+                  }))
+                }
+              />
+              <CustomCheckbox
+                checked={options.includeNumbers}
+                id="numbers"
+                label="Include Numbers"
+                onChange={() =>
+                  setOptions((prev) => ({
+                    ...prev,
+                    includeNumbers: !prev.includeNumbers,
+                  }))
+                }
+              />
+              <CustomCheckbox
+                checked={options.includeSymbols}
+                id="symbols"
+                label="Include Symbols"
+                onChange={() =>
+                  setOptions((prev) => ({
+                    ...prev,
+                    includeSymbols: !prev.includeSymbols,
+                  }))
+                }
+              />
+            </fieldset>
+            <PasswordStrength level={strength} />
+            <CustomButton onClick={handleClick}>
+              GENERATE <RightArrowIcon />
+            </CustomButton>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
