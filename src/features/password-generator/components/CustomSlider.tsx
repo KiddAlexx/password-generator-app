@@ -21,9 +21,7 @@ function CustomSlider({
         <label htmlFor="lengthSlider" className={styles.label}>
           Character Length
         </label>
-        <output htmlFor="lengthSlider" className={`${styles.value} heading-l`}>
-          {characterLength}
-        </output>
+        <div className={`${styles.value} heading-l`}>{characterLength}</div>
       </div>
 
       <input

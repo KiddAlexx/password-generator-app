@@ -22,23 +22,35 @@ function PasswordDisplay({ password, onError }: PasswordDisplayProps) {
       await navigator.clipboard.writeText(password);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      onError?.(`Failed to copy password: ${err}`);
+    } catch {
+      onError?.(`Failed to copy password:`);
     }
   };
 
   return (
     <div className={styles.displayContainer}>
-      <output
+      <p
         className={clsx(
           "heading-l",
           password ? styles.passwordOutput : styles.placeholder,
         )}
       >
-        {password || "P4$5W0rD!"}
-      </output>
+        {password ? (
+          <span>{password}</span>
+        ) : (
+          <div>
+            <span className="srOnly">No password generated</span>
+            <span aria-hidden="true">P4$5W0rD!</span>
+          </div>
+        )}
+      </p>
       <div className={styles.copyContainer}>
+        {/* Announce copied action to screen readers */}
+        <span className="srOnly" aria-live="polite" aria-atomic="true">
+          {copied ? "Password copied to clipboard." : ""}
+        </span>
         {copied && <span className={styles.copyLabel}>COPIED</span>}
+
         <button
           onClick={handleCopy}
           className={styles.copyButton}

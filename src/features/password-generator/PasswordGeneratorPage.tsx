@@ -22,6 +22,7 @@ function PasswordGeneratorPage() {
 
   const [password, setPassword] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [statusMessage, setStatusMessage] = useState<string | null>(null);
 
   const strength: StrengthLevel = calculateStrength(options);
 
@@ -35,6 +36,8 @@ function PasswordGeneratorPage() {
 
     setPassword(passwordResult.password);
     setError(null);
+    setStatusMessage("Password generated.");
+    setTimeout(() => setStatusMessage(null), 1);
   }
 
   function handleClearError() {
@@ -44,6 +47,9 @@ function PasswordGeneratorPage() {
   return (
     <>
       <ErrorModal errorMessage={error} handleClearError={handleClearError} />
+      <div className="srOnly" aria-live="polite" aria-atomic="true">
+        {statusMessage}
+      </div>
       <div className={styles.passwordGenPage}>
         <h1 className="heading-m">Password Generator</h1>
         <div className={styles.appContainer}>
