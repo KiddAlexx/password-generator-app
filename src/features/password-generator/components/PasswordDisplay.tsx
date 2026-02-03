@@ -6,15 +6,16 @@ import type { Password } from "../../../types/passwordTypes";
 
 interface PasswordDisplayProps {
   password: Password | null;
+  onError?: (errorMessage: string) => void;
 }
 
-function PasswordDisplay({ password }: PasswordDisplayProps) {
+function PasswordDisplay({ password, onError }: PasswordDisplayProps) {
   const [copied, setCopied] = useState<boolean>(false);
 
   const handleCopy = async function () {
     if (!password) {
       setCopied(false);
-      console.error("no password was provided");
+      onError?.("No password to copy. Generate one first");
       return;
     }
     try {
@@ -22,7 +23,7 @@ function PasswordDisplay({ password }: PasswordDisplayProps) {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
-      console.error(`Failed to copy password: ${err}`);
+      onError?.(`Failed to copy password: ${err}`);
     }
   };
 
@@ -31,7 +32,7 @@ function PasswordDisplay({ password }: PasswordDisplayProps) {
       <output
         className={clsx(
           "heading-l",
-          password ? styles.passwordOutput : styles.placeholder
+          password ? styles.passwordOutput : styles.placeholder,
         )}
       >
         {password || "P4$5W0rD!"}

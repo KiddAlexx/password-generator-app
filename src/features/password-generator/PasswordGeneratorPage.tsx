@@ -48,7 +48,10 @@ function PasswordGeneratorPage() {
         <h1 className="heading-m">Password Generator</h1>
         <div className={styles.appContainer}>
           <div className={styles.displayContainer}>
-            <PasswordDisplay password={password} />
+            <PasswordDisplay
+              password={password}
+              onError={(errorMessage) => setError(errorMessage)}
+            />
           </div>
           <div className={styles.controlsContainer}>
             <CustomSlider
