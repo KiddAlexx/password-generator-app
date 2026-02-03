@@ -13,13 +13,25 @@
   justify-content: center;
   gap: 1.5rem;
 
-  transition: background-color 0.2s ease, color 0.2s ease, fill 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    fill 0.2s ease;
 }
 
 .customButton:hover {
   background-color: var(--color-dark-grey);
   color: var(--color-neon-green);
   fill: var(--color-neon-green);
+}
+
+.customButton:focus {
+  outline: none;
+}
+
+.customButton:focus-visible {
+  outline: 2px solid var(--color-neon-green);
+  outline-offset: 4px;
 }
 
 /*********** Responsive styles ***********/
