@@ -1,13 +1,11 @@
+import { PASSWORD_CHAR_SETS } from "../constants/passwordCharacters";
 import type { PasswordOptions } from "../types/passwordTypes";
 
 type PasswordResult =
   | { ok: true; password: string }
   | { ok: false; error: string };
 
-const UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const LOWER = "abcdefghijklmnopqrstuvwxyz";
-const NUMBERS = "0123456789";
-const SYMBOLS = "!@#$%^&*()_+~`|}{[]:;?><,./-=";
+const { UPPER, LOWER, NUMBERS, SYMBOLS } = PASSWORD_CHAR_SETS;
 
 function getRandomIndex(max: number) {
   const array = new Uint32Array(1);
@@ -66,7 +64,7 @@ function generatePassword(options: PasswordOptions): PasswordResult {
 
   for (let i = 0; i < remainingLength; i++) {
     passwordCharacters.push(
-      allCharacters[getRandomIndex(allCharacters.length)]
+      allCharacters[getRandomIndex(allCharacters.length)],
     );
   }
 
