@@ -38,10 +38,10 @@ function PasswordDisplay({ password, onError }: PasswordDisplayProps) {
         {password ? (
           <span>{password}</span>
         ) : (
-          <div>
-            <span className="srOnly">No password generated</span>
+          <>
+            <span className="srOnly">No password generated yet</span>
             <span aria-hidden="true">P4$5W0rD!</span>
-          </div>
+          </>
         )}
       </p>
       <div className={styles.copyContainer}>

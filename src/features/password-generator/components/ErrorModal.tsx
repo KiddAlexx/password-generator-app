@@ -41,9 +41,16 @@ export default function ErrorModal({
       ref={dialogRef}
       onCancel={onCancel}
       onClose={onClose}
+      aria-labelledby="error-heading"
+      aria-describedby="error-message"
     >
-      <h2 className={`heading-m ${styles.title}`}>Error!</h2>
-      <p className={styles.message}>{errorMessage}</p>
+      <h2 id="error-heading" className={`heading-m ${styles.title}`}>
+        Error!
+      </h2>
+
+      <p id="error-message" className={styles.message}>
+        {errorMessage}
+      </p>
 
       <CustomButton type="button" onClick={() => handleClearError?.()}>
         Close
