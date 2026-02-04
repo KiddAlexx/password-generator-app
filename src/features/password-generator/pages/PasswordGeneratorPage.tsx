@@ -1,15 +1,29 @@
+// React imports
 import { useState } from "react";
-import CustomCheckbox from "./components/CustomCheckbox";
-import CustomSlider from "./components/CustomSlider";
-import styles from "./styles/PasswordGeneratorPage.module.css";
-import CustomButton from "./components/CustomButton";
-import RightArrowIcon from "../../assets/icons/icon-arrow-right.svg?react";
-import PasswordStrength from "./components/PasswordStrength";
-import type { PasswordOptions, StrengthLevel } from "../../types/passwordTypes";
-import calculateStrength from "../../utils/calculateStrength";
-import PasswordDisplay from "./components/PasswordDisplay";
-import generatePassword from "../../utils/generatePassword";
-import ErrorModal from "./components/ErrorModal";
+
+// Styles
+import styles from "../styles/PasswordGeneratorPage.module.css";
+
+// Assets
+import RightArrowIcon from "../../../assets/icons/icon-arrow-right.svg?react";
+
+// Components
+import CustomButton from "../components/CustomButton";
+import CustomCheckbox from "../components/CustomCheckbox";
+import CustomSlider from "../components/CustomSlider";
+import ErrorModal from "../components/ErrorModal";
+import PasswordDisplay from "../components/PasswordDisplay";
+import PasswordStrength from "../components/PasswordStrength";
+
+// Utils
+import calculateStrength from "../../../utils/calculateStrength";
+import generatePassword from "../../../utils/generatePassword";
+
+// Type imports
+import type {
+  PasswordOptions,
+  StrengthLevel,
+} from "../../../types/passwordTypes";
 
 function PasswordGeneratorPage() {
   const [options, setOptions] = useState<PasswordOptions>({
@@ -24,9 +38,10 @@ function PasswordGeneratorPage() {
   const [error, setError] = useState<string | null>(null);
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
 
+  // Calculate password strength based on selected options
   const strength: StrengthLevel = calculateStrength(options);
 
-  function handleClick() {
+  function handleGeneratePassword() {
     const passwordResult = generatePassword(options);
     if (!passwordResult.ok) {
       setPassword(null);
@@ -117,7 +132,10 @@ function PasswordGeneratorPage() {
               />
             </fieldset>
             <PasswordStrength level={strength} />
-            <CustomButton aria-label="Generate password" onClick={handleClick}>
+            <CustomButton
+              aria-label="Generate password"
+              onClick={handleGeneratePassword}
+            >
               GENERATE <RightArrowIcon />
             </CustomButton>
           </div>
