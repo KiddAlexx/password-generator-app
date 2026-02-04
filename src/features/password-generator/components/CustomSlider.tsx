@@ -21,7 +21,12 @@ function CustomSlider({
         <label htmlFor="lengthSlider" className={styles.label}>
           Character Length
         </label>
-        <div className={`${styles.value} heading-l`}>{characterLength}</div>
+        <div
+          aria-label="character length output"
+          className={`${styles.value} heading-l`}
+        >
+          {characterLength}
+        </div>
       </div>
 
       <input
