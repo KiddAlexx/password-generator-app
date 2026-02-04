@@ -52,7 +52,7 @@ function PasswordGeneratorPage() {
     setPassword(passwordResult.password);
     setError(null);
     setStatusMessage("Password generated.");
-    setTimeout(() => setStatusMessage(null), 1);
+    setTimeout(() => setStatusMessage(null), 1000);
   }
 
   function handleClearError() {
@@ -61,7 +61,9 @@ function PasswordGeneratorPage() {
 
   return (
     <>
-      <ErrorModal errorMessage={error} handleClearError={handleClearError} />
+      {error && (
+        <ErrorModal errorMessage={error} handleClearError={handleClearError} />
+      )}
       <div className="srOnly" aria-live="polite" aria-atomic="true">
         {statusMessage}
       </div>

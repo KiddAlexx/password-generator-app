@@ -13,3 +13,18 @@ Object.defineProperty(window, "matchMedia", {
     dispatchEvent: vi.fn(),
   })),
 });
+
+// Mock dialog functions as currently no support in JsDom
+HTMLDialogElement.prototype.showModal = vi.fn(function (
+  this: HTMLDialogElement,
+) {
+  this.setAttribute("open", "");
+});
+
+HTMLDialogElement.prototype.close = vi.fn(function (this: HTMLDialogElement) {
+  this.removeAttribute("open");
+});
+
+HTMLDialogElement.prototype.show = vi.fn(function (this: HTMLDialogElement) {
+  this.setAttribute("open", "");
+});
