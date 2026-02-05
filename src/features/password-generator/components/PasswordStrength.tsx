@@ -25,7 +25,11 @@ function PasswordStrength({ level }: PasswordStrengthProps) {
       <div className={styles.outputContainer}>
         {/* non breaking space used when no strength value displayed
         to avoid layout shift */}
-        <output className="heading-m" aria-atomic="true">
+        <output
+          className="heading-m"
+          aria-atomic="true"
+          aria-label="password strength"
+        >
           <span className="srOnly">Password strength {text}</span>
           <span aria-hidden="true">{text || "\u00A0"}</span>
         </output>

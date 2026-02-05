@@ -30,6 +30,7 @@ function PasswordDisplay({ password, onError }: PasswordDisplayProps) {
   return (
     <div className={styles.displayContainer}>
       <p
+        aria-label="password display"
         className={clsx(
           "heading-l",
           password ? styles.passwordOutput : styles.placeholder,

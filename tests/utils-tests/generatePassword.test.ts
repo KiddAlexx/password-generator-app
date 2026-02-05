@@ -1,5 +1,6 @@
 import { PASSWORD_CHAR_SETS } from "../../src/constants/passwordCharacters";
 import generatePassword from "../../src/utils/generatePassword";
+import { containsOnlyCharFromSet, containsCharFromSet } from "../utils";
 
 const baseOptions = {
   includeUpper: false,
@@ -10,14 +11,6 @@ const baseOptions = {
 };
 
 const { NUMBERS, UPPER, SYMBOLS, LOWER } = PASSWORD_CHAR_SETS;
-
-const containsCharFromSet = (password: string, set: string) => {
-  return [...password].some((c) => set.includes(c));
-};
-
-const containsOnlyCharFromSet = (password: string, set: string) => {
-  return [...password].every((c) => set.includes(c));
-};
 
 describe("generatePassword", () => {
   it("should return error when characterLength <=0", () => {
