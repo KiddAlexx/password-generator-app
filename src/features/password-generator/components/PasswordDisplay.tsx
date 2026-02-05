@@ -4,8 +4,8 @@ import clsx from "clsx";
 import { useState } from "react";
 import type { Password } from "../../../types/passwordTypes";
 
-interface PasswordDisplayProps {
-  password: Password | null;
+export interface PasswordDisplayProps {
+  password?: Password | null;
   onError?: (errorMessage: string) => void;
 }
 
@@ -47,7 +47,13 @@ function PasswordDisplay({ password, onError }: PasswordDisplayProps) {
       </p>
       <div className={styles.copyContainer}>
         {/* Announce copied action to screen readers */}
-        <span className="srOnly" aria-live="polite" aria-atomic="true">
+
+        <span
+          role="status"
+          className="srOnly"
+          aria-live="polite"
+          aria-atomic="true"
+        >
           {copied ? "Password copied to clipboard." : ""}
         </span>
         {copied && <span className={styles.copyLabel}>COPIED</span>}
