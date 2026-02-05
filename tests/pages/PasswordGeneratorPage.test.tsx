@@ -23,7 +23,7 @@ describe("PasswordGeneratorPage", () => {
     ).toBeInTheDocument();
   });
 
-  it("should display error when generating with no options selected", async () => {
+  it("should display error when generating with no character options selected", async () => {
     const { outputCharLength, sliderCharLength, setSlider, clickButton } =
       renderComponent();
 
