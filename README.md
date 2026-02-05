@@ -34,8 +34,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Frontend Mentor - My Solution](https://www.frontendmentor.io/solutions/password-generator-using-react-typescript-testing-with-vitest-RXCtqbTsH-)
 - Live Site URL: [KiddAlexx-Password-Generator-Netlify](https://kiddalexx-password-generator.netlify.app/)
+- Solution URL: [Frontend Mentor - My Solution](https://www.frontendmentor.io/solutions/password-generator-using-react-typescript-testing-with-vitest-RXCtqbTsH-)
 
 ### Built with
 
