@@ -30,7 +30,7 @@ Users should be able to:
 
 ### Preview
 
-![](./assets/preview.gif)
+![](./src/assets/preview.gif)
 
 ### Links
 
