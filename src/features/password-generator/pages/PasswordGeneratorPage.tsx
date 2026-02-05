@@ -60,7 +60,7 @@ function PasswordGeneratorPage() {
   }
 
   return (
-    <>
+    <main>
       {error && (
         <ErrorModal errorMessage={error} handleClearError={handleClearError} />
       )}
@@ -143,7 +143,7 @@ function PasswordGeneratorPage() {
           </div>
         </div>
       </div>
-    </>
+    </main>
   );
 }
 

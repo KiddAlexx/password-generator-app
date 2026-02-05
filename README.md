@@ -34,8 +34,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Frontend Mentor - My Solution](https://www.frontendmentor.io/solutions/password-generator-using-react-typescript-testing-with-vitest-RXCtqbTsH-)
+- Live Site URL: [KiddAlexx-Password-Generator-Netlify](https://kiddalexx-password-generator.netlify.app/)
 
 ### Built with
 
@@ -48,7 +48,7 @@ Users should be able to:
 
 ### Useful resources
 
-- [LogRocket - Creating a custom CSS range slider with JavaScript upgrades](https://blog.logrocket.com/creating-custom-css-range-slider-javascript-upgrades/) - This was super useful for learning how to style the custom slider and ensure works across main browsers
+- [LogRocket - Creating a custom CSS range slider with JavaScript upgrades](https://blog.logrocket.com/creating-custom-css-range-slider-javascript-upgrades/) - This was super useful for learning how to style the custom slider and ensure works across main browsers.
 
 ## Author
 

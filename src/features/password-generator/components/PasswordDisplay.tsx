@@ -63,7 +63,7 @@ function PasswordDisplay({ password, onError }: PasswordDisplayProps) {
           className={styles.copyButton}
           aria-label="Copy password"
         >
-          <CopyIcon className={styles.copyIcon} />
+          <CopyIcon type="button" className={styles.copyIcon} />
         </button>
       </div>
     </div>
