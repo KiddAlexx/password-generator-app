@@ -2,7 +2,7 @@ import clsx from "clsx";
 import styles from "../styles/PasswordStrength.module.css";
 import type { StrengthLevel } from "../../../types/passwordTypes";
 
-interface PasswordStrengthProps {
+export interface PasswordStrengthProps {
   level: StrengthLevel;
 }
 
