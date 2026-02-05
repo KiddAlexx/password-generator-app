@@ -13,7 +13,7 @@ This is a solution to the [Password generator app challenge on Frontend Mentor](
 
 ## Overview
 
-As well as the requirements listed in the challenge, I also added an error modal, wrote unit and integration tests using Vitest and React Testing Library. I also
+As well as the requirements listed in the challenge, I added an error modal, wrote unit and integration tests using Vitest and React Testing Library. I also
 manually tested the app for accessibility using keyboard only navigation and
 screen reader to ensuring all interactive elements are usable and correctly
 announced.
