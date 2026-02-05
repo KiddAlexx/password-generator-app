@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import CustomButton from "./CustomButton";
 import styles from "../styles/ErrorModal.module.css";
 
-interface ErrorModalProps {
+export interface ErrorModalProps {
   errorMessage?: string | null;
   handleClearError?: () => void;
 }
